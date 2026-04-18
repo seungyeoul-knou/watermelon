@@ -1,0 +1,62 @@
+{
+  "..\\node_modules\\@blocknote\\core\\dist\\TrailingNode-GzE59m_7.js -> @emoji-mart/data": {
+    "id": 21263,
+    "files": [
+      "static/chunks/76567b6f.f10e15270bb8b0cf.js"
+    ]
+  },
+  "..\\node_modules\\@blocknote\\core\\dist\\TrailingNode-GzE59m_7.js -> emoji-mart": {
+    "id": 69850,
+    "files": [
+      "static/chunks/c0e397d0.4d79f4a4fe21a0b3.js"
+    ]
+  },
+  "..\\node_modules\\@blocknote\\react\\dist\\blocknote-react.js -> @emoji-mart/data": {
+    "id": 21263,
+    "files": [
+      "static/chunks/76567b6f.f10e15270bb8b0cf.js"
+    ]
+  },
+  "..\\node_modules\\@blocknote\\react\\dist\\blocknote-react.js -> emoji-mart": {
+    "id": 69850,
+    "files": [
+      "static/chunks/c0e397d0.4d79f4a4fe21a0b3.js"
+    ]
+  },
+  "..\\node_modules\\next\\dist\\client\\index.js -> ../pages/_app": {
+    "id": 41966,
+    "files": [
+      "static/chunks/1966.b8f83f7ba376c962.js"
+    ]
+  },
+  "..\\node_modules\\next\\dist\\client\\index.js -> ../pages/_error": {
+    "id": 3899,
+    "files": [
+      "static/chunks/3899.3f761f7e3a944e8c.js"
+    ]
+  },
+  "app\\(app)\\docs\\page.tsx -> swagger-ui-react": {
+    "id": 66112,
+    "files": [
+      "static/chunks/949fd6f9.3eaceef5bdd82818.js",
+      "static/chunks/9304.1fe72bbb0670bba8.js",
+      "static/chunks/3280.45e7e3aa1af47e5f.js"
+    ]
+  },
+  "app\\(app)\\instructions\\page.tsx -> @/components/shared/blocknote-editor": {
+    "id": 68867,
+    "files": [
+      "static/css/588a00752d6f7e76.css",
+      "static/css/6cdb843cb9455d45.css",
+      "static/css/bbab2c25110f340c.css",
+      "static/chunks/6be7e44c.cff5078ea82e7363.js",
+      "static/chunks/70e0d97a.0672d22269865933.js",
+      "static/chunks/54a60aa6.5ec10f123a239c6e.js",
+      "static/chunks/c16f53c3.e689f64c0a6468c2.js",
+      "static/chunks/0cc5eebf.482074426d2269cc.js",
+      "static/chunks/9304.1fe72bbb0670bba8.js",
+      "static/chunks/6926.075780ed3bd21700.js",
+      "static/chunks/8867.b29547971e079ac1.js"
+    ]
+  }
+}

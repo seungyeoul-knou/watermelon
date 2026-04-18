@@ -1,0 +1,1 @@
+globalThis.__RSC_MANIFEST=(globalThis.__RSC_MANIFEST||{});globalThis.__RSC_MANIFEST["/api/tasks/[id]/request-approval/route"]={"moduleLoading":{"prefix":"/_next/"},"ssrModuleMapping":{},"edgeSSRModuleMapping":{},"clientModules":{},"entryCSSFiles":{"D:\\watermelon\\src\\app\\api\\tasks\\[id]\\request-approval\\route":[]},"rscModuleMapping":{},"edgeRscModuleMapping":{}};

@@ -1,0 +1,12 @@
+import pc from "picocolors";
+import { startLocalRuntime } from "../local-runtime.js";
+export async function startCommand(options = {}) {
+    const record = await startLocalRuntime(options);
+    console.log(pc.green("✓ Watermelon local runtime started"));
+    console.log(`${pc.bold("Profile:")}  ${record.profile}`);
+    console.log(`${pc.bold("URL:")}      http://${record.host}:${record.port}`);
+    console.log(`${pc.bold("PID:")}      ${record.pid}`);
+    console.log(`${pc.bold("Runtime:")}  ${record.runtimeKind} (${record.runtimeSource})`);
+    console.log(`${pc.bold("SQLite:")}   ${record.sqlitePath}`);
+    console.log(`${pc.bold("Data dir:")} ${record.dataDir}`);
+}

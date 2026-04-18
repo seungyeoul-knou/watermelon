@@ -17,7 +17,6 @@
     "mcp"
   ],
   "scripts": {
-    "prepare": "npm run build && npm --workspace watermelon-mcp run build && npm --workspace packages/cli run build",
     "postinstall": "node packages/cli/scripts/rebuild-native.mjs",
     "dev": "bash scripts/dev.sh start",
     "dev:stop": "bash scripts/dev.sh stop",
