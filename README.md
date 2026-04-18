@@ -396,16 +396,4 @@ Issues and PRs are welcome.
 
 ---
 
-## License
-
-[Sustainable Use License](LICENSE.md) — free for personal and internal business use.  
-Commercial redistribution or SaaS hosting requires a separate agreement.  
-Copyright © 2026 Dante Labs.
-
----
-
-<div align="center">
-
-**YouTube** [@dante-labs](https://youtube.com/@dante-labs) · **Email** dante@dante-labs.com · [☕ Buy Me a Coffee](https://buymeacoffee.com/dante.labs)
-
 </div>
