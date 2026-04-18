@@ -10,25 +10,25 @@ function iconSvg(size) {
   const pad = s * 0.15;
   const bg = s - pad * 2;
   const cx = s * 0.5;
-  const cy = s * 0.5;
-  const rx = s * 0.29;
-  const ry = s * 0.37;
-  const seed = s * 0.018;
+  const cy = s * 0.53;
+  const seed = s * 0.022;
 
   return `
   <svg xmlns="http://www.w3.org/2000/svg" width="${s}" height="${s}" viewBox="0 0 ${s} ${s}">
     <rect x="${pad}" y="${pad}" width="${bg}" height="${bg}" rx="${s * 0.14}" fill="#b8d967"/>
-    <g transform="translate(${cx} ${cy}) rotate(28)">
-      <ellipse cx="0" cy="0" rx="${rx}" ry="${ry}" fill="#123f22"/>
-      <ellipse cx="0" cy="0" rx="${rx * 0.9}" ry="${ry * 0.9}" fill="#1f7a38"/>
-      <ellipse cx="0" cy="${-ry * 0.02}" rx="${rx * 0.75}" ry="${ry * 0.76}" fill="#ef4458"/>
-      <ellipse cx="0" cy="${-ry * 0.02}" rx="${rx * 0.58}" ry="${ry * 0.58}" fill="#ff6672" opacity="0.95"/>
-      <path d="M ${-rx * 0.74} ${-ry * 0.1} C ${-rx * 0.25} ${-ry * 0.52}, ${rx * 0.3} ${-ry * 0.52}, ${rx * 0.74} ${-ry * 0.1}" fill="none" stroke="#7dcf52" stroke-width="${s * 0.035}" stroke-linecap="round" opacity="0.85"/>
-      <ellipse cx="${-rx * 0.26}" cy="${-ry * 0.1}" rx="${seed * 0.78}" ry="${seed * 1.65}" fill="#1a1720" transform="rotate(-16 ${-rx * 0.26} ${-ry * 0.1})"/>
-      <ellipse cx="${rx * 0.12}" cy="${-ry * 0.24}" rx="${seed * 0.78}" ry="${seed * 1.65}" fill="#1a1720" transform="rotate(18 ${rx * 0.12} ${-ry * 0.24})"/>
-      <ellipse cx="${rx * 0.3}" cy="${ry * 0.12}" rx="${seed * 0.78}" ry="${seed * 1.65}" fill="#1a1720" transform="rotate(-8 ${rx * 0.3} ${ry * 0.12})"/>
-      <ellipse cx="${-rx * 0.08}" cy="${ry * 0.22}" rx="${seed * 0.78}" ry="${seed * 1.65}" fill="#1a1720" transform="rotate(12 ${-rx * 0.08} ${ry * 0.22})"/>
-      <ellipse cx="${-rx * 0.44}" cy="${ry * 0.2}" rx="${seed * 0.62}" ry="${seed * 1.35}" fill="#1a1720" transform="rotate(24 ${-rx * 0.44} ${ry * 0.2})"/>
+    <g transform="translate(${cx} ${cy})">
+      <path d="M ${-s * 0.34} ${s * 0.1} A ${s * 0.34} ${s * 0.34} 0 0 1 ${s * 0.34} ${s * 0.1} Z" fill="#0e5229"/>
+      <path d="M ${-s * 0.29} ${s * 0.06} A ${s * 0.29} ${s * 0.29} 0 0 1 ${s * 0.29} ${s * 0.06} Z" fill="#2baa4b"/>
+      <path d="M ${-s * 0.24} ${s * 0.015} A ${s * 0.24} ${s * 0.24} 0 0 1 ${s * 0.24} ${s * 0.015} Z" fill="#ff4f62"/>
+      <path d="M ${-s * 0.34} ${s * 0.1} L ${s * 0.34} ${s * 0.1}" stroke="#083b1d" stroke-width="${s * 0.032}" stroke-linecap="round"/>
+      <ellipse cx="${-s * 0.12}" cy="${-s * 0.03}" rx="${seed * 0.72}" ry="${seed * 1.45}" fill="#19131a" transform="rotate(18 ${-s * 0.12} ${-s * 0.03})"/>
+      <ellipse cx="${s * 0.01}" cy="${-s * 0.09}" rx="${seed * 0.72}" ry="${seed * 1.45}" fill="#19131a" transform="rotate(-12 ${s * 0.01} ${-s * 0.09})"/>
+      <ellipse cx="${s * 0.14}" cy="${-s * 0.03}" rx="${seed * 0.72}" ry="${seed * 1.45}" fill="#19131a" transform="rotate(12 ${s * 0.14} ${-s * 0.03})"/>
+      <circle cx="${-s * 0.09}" cy="${s * 0.025}" r="${s * 0.011}" fill="#35202a"/>
+      <circle cx="${s * 0.09}" cy="${s * 0.025}" r="${s * 0.011}" fill="#35202a"/>
+      <path d="M ${-s * 0.035} ${s * 0.04} Q 0 ${s * 0.065} ${s * 0.035} ${s * 0.04}" fill="none" stroke="#35202a" stroke-width="${s * 0.01}" stroke-linecap="round"/>
+      <circle cx="${-s * 0.15}" cy="${s * 0.04}" r="${s * 0.018}" fill="#ff8b94" opacity="0.72"/>
+      <circle cx="${s * 0.15}" cy="${s * 0.04}" r="${s * 0.018}" fill="#ff8b94" opacity="0.72"/>
     </g>
   </svg>`;
 }
@@ -40,17 +40,18 @@ function ogSvg() {
     <rect x="96" y="86" width="1032" height="458" rx="36" fill="#ffffff" stroke="#dce4ef" stroke-width="2"/>
     <g transform="translate(218 315)">
       <rect x="-96" y="-96" width="192" height="192" rx="34" fill="#b8d967"/>
-      <g transform="rotate(28)">
-        <ellipse cx="0" cy="0" rx="58" ry="74" fill="#123f22"/>
-        <ellipse cx="0" cy="0" rx="52" ry="67" fill="#1f7a38"/>
-        <ellipse cx="0" cy="-1" rx="44" ry="56" fill="#ef4458"/>
-        <ellipse cx="0" cy="-1" rx="34" ry="42" fill="#ff6672" opacity="0.95"/>
-        <path d="M -43 -7 C -15 -38, 18 -38, 43 -7" fill="none" stroke="#7dcf52" stroke-width="7" stroke-linecap="round" opacity="0.85"/>
-        <ellipse cx="-16" cy="-7" rx="3" ry="7" fill="#1a1720" transform="rotate(-16 -16 -7)"/>
-        <ellipse cx="7" cy="-18" rx="3" ry="7" fill="#1a1720" transform="rotate(18 7 -18)"/>
-        <ellipse cx="18" cy="9" rx="3" ry="7" fill="#1a1720" transform="rotate(-8 18 9)"/>
-        <ellipse cx="-5" cy="16" rx="3" ry="7" fill="#1a1720" transform="rotate(12 -5 16)"/>
-      </g>
+      <path d="M -65 20 A 65 65 0 0 1 65 20 Z" fill="#0e5229"/>
+      <path d="M -56 12 A 56 56 0 0 1 56 12 Z" fill="#2baa4b"/>
+      <path d="M -46 3 A 46 46 0 0 1 46 3 Z" fill="#ff4f62"/>
+      <path d="M -65 20 L 65 20" stroke="#083b1d" stroke-width="6" stroke-linecap="round"/>
+      <ellipse cx="-23" cy="-6" rx="4" ry="8" fill="#19131a" transform="rotate(18 -23 -6)"/>
+      <ellipse cx="2" cy="-18" rx="4" ry="8" fill="#19131a" transform="rotate(-12 2 -18)"/>
+      <ellipse cx="27" cy="-6" rx="4" ry="8" fill="#19131a" transform="rotate(12 27 -6)"/>
+      <circle cx="-17" cy="5" r="3" fill="#35202a"/>
+      <circle cx="17" cy="5" r="3" fill="#35202a"/>
+      <path d="M -7 9 Q 0 14 7 9" fill="none" stroke="#35202a" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="-29" cy="9" r="4" fill="#ff8b94" opacity="0.72"/>
+      <circle cx="29" cy="9" r="4" fill="#ff8b94" opacity="0.72"/>
     </g>
     <text x="350" y="286" font-family="Inter, Arial, sans-serif" font-size="76" font-weight="800" fill="#1e2a44">Watermelon</text>
     <text x="354" y="352" font-family="Inter, Arial, sans-serif" font-size="31" font-weight="500" fill="#6d7690">Workflows for AI agents</text>
