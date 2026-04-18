@@ -8,14 +8,11 @@
 
 재사용 가능한 워크플로우를 설계하고, 어떤 AI 코딩 에이전트에서든 실행하며, 모든 단계를 실시간으로 확인하세요.
 
-[![npm](https://img.shields.io/npm/v/watermelon?color=4169e1)](https://www.npmjs.com/package/watermelon)
 [![Docker](https://img.shields.io/badge/ghcr.io-watermelon-b7cf57)](https://ghcr.io/seungyeoul-knou/watermelon)
-[![License](https://img.shields.io/badge/License-Sustainable_Use-lightgrey)](LICENSE.md)
 
 [빠른 시작](#빠른-시작) · [스킬](#스킬) · [MCP 도구](#mcp-도구) · [CLI](#cli) · [셀프호스팅](#셀프호스팅) · [기여하기](#기여하기)
 
-🌐 [English](README.md) · 📊 [프레젠테이션 슬라이드](https://canva.link/5f62nmx6wk7x4ka)
-
+🌐 [English](README.md)
 </div>
 
 ---
@@ -395,16 +392,3 @@ bash scripts/dev.sh start
 
 ---
 
-## 라이선스
-
-[Sustainable Use License](LICENSE.md) — 개인 및 내부 비즈니스 용도로 무료.  
-상업적 재배포나 SaaS 제공을 위해서는 별도 계약이 필요합니다.  
-Copyright © 2026 Dante Labs.
-
----
-
-<div align="center">
-
-**YouTube** [@dante-labs](https://youtube.com/@dante-labs) · **이메일** dante@dante-labs.com · [☕ 커피 후원](https://buymeacoffee.com/dante.labs)
-
-</div>
