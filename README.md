@@ -8,9 +8,7 @@
 
 Design reusable workflows, run them from any AI coding agent, and watch every step in real time.
 
-[![npm](https://img.shields.io/npm/v/watermelon?color=4169e1)](https://www.npmjs.com/package/watermelon)
 [![Docker](https://img.shields.io/badge/ghcr.io-watermelon-b7cf57)](https://ghcr.io/seungyeoul-knou/watermelon)
-[![License](https://img.shields.io/badge/License-Sustainable_Use-lightgrey)](LICENSE.md)
 
 [Quick Setup](#quick-setup) · [Skills](#skills) · [MCP Tools](#mcp-tools) · [CLI](#cli) · [Self-Hosting](#self-hosting) · [Contributing](#contributing)
 
