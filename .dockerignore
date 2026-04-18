@@ -1,0 +1,74 @@
+# === Mirrors .gitignore (files not needed in Docker build context) ===
+
+# Dependencies (rebuilt in Docker)
+node_modules/
+.pnp
+.pnp.*
+.yarn/
+
+# Testing
+/coverage
+
+# Next.js build outputs
+/.next/
+/out/
+/build
+
+# Misc
+.DS_Store
+*.pem
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Env files
+.env*
+
+# Data
+/data/
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+.dev/
+ref/
+
+# Agent/dev meta (local only)
+.claude/
+.agents/
+.codex/
+.codex-runs/
+.remember/
+.superpowers/
+.worktrees/
+.opencode/
+.gemini/
+.openclaw/
+CLAUDE.md
+AGENTS.md
+GEMINI.md
+docs/superpowers/
+
+# Local MCP/plugin artifacts
+.mcp.json
+plugin/
+mcp/dist/
+packages/cli/dist/
+*.db
+*.db-shm
+*.db-wal
+.vscode/
+.idea/
+*.log
+
+# Internal docs, tests, and local-only scripts
+docs/
+tests/
+local/
+
+# Git
+.git
+.gitignore

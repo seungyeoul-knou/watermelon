@@ -1,0 +1,61 @@
+import { NextResponse } from "next/server";
+import {
+  execute,
+  queryOne,
+  type Folder,
+  okResponse,
+  errorResponse,
+} from "@/lib/db";
+import { withAuth } from "@/lib/with-auth";
+import { canChangeFolderVisibility, loadFolder } from "@/lib/authorization";
+
+type Params = { params: Promise<{ id: string }> };
+
+export const POST = withAuth<Params>(
+  "workflows:update",
+  async (request, user, { params }) => {
+    const { id } = await params;
+    const body = await request.json();
+    const { visibility } = body;
+
+    if (!["personal", "group", "public", "inherit"].includes(visibility)) {
+      const res = errorResponse("VALIDATION_ERROR", "invalid visibility", 400);
+      return NextResponse.json(res.body, { status: res.status });
+    }
+
+    const folder = await loadFolder(Number(id));
+    if (!folder) {
+      const res = errorResponse("NOT_FOUND", "폴더를 찾을 수 없습니다", 404);
+      return NextResponse.json(res.body, { status: res.status });
+    }
+
+    if (visibility === "inherit" && folder.parent_id === null) {
+      const res = errorResponse(
+        "VALIDATION_ERROR",
+        "최상위 폴더는 '폴더따름'을 사용할 수 없습니다",
+        400,
+      );
+      return NextResponse.json(res.body, { status: res.status });
+    }
+
+    if (!(await canChangeFolderVisibility(user, folder, visibility))) {
+      const code =
+        visibility === "public" || folder.visibility === "public"
+          ? "VISIBILITY_GATE"
+          : "OWNERSHIP_REQUIRED";
+      const res = errorResponse(code, "visibility 변경 권한 없음", 403);
+      return NextResponse.json(res.body, { status: res.status });
+    }
+
+    await execute(
+      "UPDATE folders SET visibility = $1, updated_at = $2 WHERE id = $3",
+      [visibility, new Date().toISOString(), Number(id)],
+    );
+    const updated = await queryOne<Folder>(
+      "SELECT * FROM folders WHERE id = $1",
+      [Number(id)],
+    );
+    const res = okResponse(updated);
+    return NextResponse.json(res.body, { status: res.status });
+  },
+);

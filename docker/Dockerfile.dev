@@ -1,0 +1,17 @@
+FROM node:22-alpine
+
+WORKDIR /app
+
+# Install dependencies first (cached layer)
+COPY package.json package-lock.json ./
+RUN npm ci
+
+# Dev entrypoint: auto-refresh node_modules when package-lock.json changes
+COPY docker/dev-entrypoint.sh /usr/local/bin/dev-entrypoint.sh
+RUN chmod +x /usr/local/bin/dev-entrypoint.sh
+
+# Source is mounted as volume — no COPY needed
+EXPOSE 3000
+
+ENTRYPOINT ["dev-entrypoint.sh"]
+CMD ["npx", "next", "dev", "-H", "0.0.0.0"]

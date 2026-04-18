@@ -1,0 +1,45 @@
+# docker-compose.yml — Watermelon self-host template
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: watermelon
+      POSTGRES_USER: watermelon
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?set DB_PASSWORD in .env}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./docker/init.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U watermelon"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  app:
+    image: ghcr.io/seungyeoul-knou/watermelon:${WATERMELON_VERSION:-latest}
+    ports:
+      - "${APP_PORT:-3100}:3000"
+    environment:
+      DATABASE_URL: postgresql://watermelon:${DB_PASSWORD}@db:5432/watermelon
+      JWT_SECRET: ${JWT_SECRET:?set JWT_SECRET in .env}
+      PUBLIC_URL: ${PUBLIC_URL:-}
+      TEAM_NAME: ${TEAM_NAME:-}
+      WATERMELON_VERSION: ${WATERMELON_VERSION:-latest}
+      WS_RELAY_URL: http://ws-relay:3001
+    depends_on:
+      db:
+        condition: service_healthy
+      ws-relay:
+        condition: service_started
+
+  ws-relay:
+    image: ghcr.io/seungyeoul-knou/watermelon:${WATERMELON_VERSION:-latest}
+    restart: unless-stopped
+    ports:
+      - "${WS_PORT:-3001}:3001"
+    command: ["node", "scripts/ws-relay.js"]
+    environment:
+      WS_PORT: "3001"
+
+volumes:
+  pgdata:

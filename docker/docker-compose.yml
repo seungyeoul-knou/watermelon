@@ -1,0 +1,52 @@
+services:
+  # ─── PostgreSQL ───
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-watermelon}
+      POSTGRES_USER: ${POSTGRES_USER:-watermelon}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-watermelon_dev_2026}
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-watermelon}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # ─── Next.js App ───
+  app:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT:-3000}:3000"
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER:-watermelon}:${POSTGRES_PASSWORD:-watermelon_dev_2026}@db:5432/${POSTGRES_DB:-watermelon}
+      NODE_ENV: production
+      WS_RELAY_URL: http://ws-relay:3001
+    depends_on:
+      db:
+        condition: service_healthy
+      ws-relay:
+        condition: service_started
+
+  # ─── WebSocket Relay ───
+  ws-relay:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    restart: unless-stopped
+    ports:
+      - "${WS_PORT:-3001}:3001"
+    command: ["node", "/app/scripts/ws-relay.js"]
+    environment:
+      WS_PORT: 3001
+
+volumes:
+  pgdata:
