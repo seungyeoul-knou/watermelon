@@ -9,6 +9,7 @@
     "packages/cli/dist",
     "packages/cli/scripts",
     "packages/cli/package.json",
+    "scripts/rebuild-native.mjs",
     "README.md",
     "README.ko.md"
   ],
@@ -17,7 +18,7 @@
     "mcp"
   ],
   "scripts": {
-    "postinstall": "node packages/cli/scripts/rebuild-native.mjs",
+    "postinstall": "node scripts/rebuild-native.mjs",
     "dev": "bash scripts/dev.sh start",
     "dev:stop": "bash scripts/dev.sh stop",
     "dev:restart": "bash scripts/dev.sh restart",
