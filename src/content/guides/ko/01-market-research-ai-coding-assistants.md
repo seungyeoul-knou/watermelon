@@ -4,8 +4,8 @@
 
 자연어 한 줄을 던지면 Watermelon가:
 
-1. `/bk-design` 스킬로 7단계 워크플로를 **설계 → 서버 등록**
-2. `/bk-start` 스킬로 **단계별 자동 실행** (웹 검색 + 산출물 작성)
+1. `/wm-design` 스킬로 7단계 워크플로를 **설계 → 서버 등록**
+2. `/wm-start` 스킬로 **단계별 자동 실행** (웹 검색 + 산출물 작성)
 3. 중간에 **VS Gate(Visual Selection)** 로 사람 검토 받고
 4. 최종 **마크다운 보고서** 까지 자동 생성
 
@@ -48,11 +48,11 @@ watermelon init -p dev -s https://dantelabs.watermelon.work -k bk_xxxxxxxxxxxxxx
 
 ### 1-2. 스킬 등록 확인
 
-Watermelon CLI를 설치하면 `/bk-design`, `/bk-start` 등의 **스킬**이 Claude Code에 자동 등록됩니다. 스킬은 Claude Code의 슬래시 커맨드로 실행되며, 내부적으로 Watermelon 서버와 통신합니다.
+Watermelon CLI를 설치하면 `/wm-design`, `/wm-start` 등의 **스킬**이 Claude Code에 자동 등록됩니다. 스킬은 Claude Code의 슬래시 커맨드로 실행되며, 내부적으로 Watermelon 서버와 통신합니다.
 
 > **사용자는 스킬만 호출하면 됩니다.** MCP 연결이나 API 호출은 스킬이 알아서 처리합니다.
 
-설치가 정상적으로 완료되면 Claude Code 세션에서 `/bk-` 로 시작하는 스킬들을 바로 사용할 수 있습니다.
+설치가 정상적으로 완료되면 Claude Code 세션에서 `/wm-` 로 시작하는 스킬들을 바로 사용할 수 있습니다.
 
 ### 1-3. ⚠️ 권한 모드 주의
 
@@ -84,7 +84,7 @@ claude --permission-mode acceptEdits
 - 한국 사용자 커뮤니티 반응 (블로그, 유튜브, 커뮤니티)
 - 강점과 약점
 
-/bk-design 으로 워크플로를 설계하고 /bk-start 로 실행까지 진행해서,
+/wm-design 으로 워크플로를 설계하고 /wm-start 로 실행까지 진행해서,
 마지막에 마크다운 비교 보고서까지 만들어줘.
 ```
 
@@ -94,13 +94,13 @@ claude --permission-mode acceptEdits
 
 ## 3. Step-by-Step 진행 로그
 
-### Phase A — `/bk-design` 워크플로 설계
+### Phase A — `/wm-design` 워크플로 설계
 
 ```
-⏺ Skill(bk-design)  Successfully loaded skill
+⏺ Skill(wm-design)  Successfully loaded skill
 ```
 
-에이전트가 `/bk-design` 스킬을 실행합니다. 스킬은 Watermelon 서버에서 기존 폴더·워크플로를 조회하고, 목표에 맞는 **7단계 설계안**을 제시합니다.
+에이전트가 `/wm-design` 스킬을 실행합니다. 스킬은 Watermelon 서버에서 기존 폴더·워크플로를 조회하고, 목표에 맞는 **7단계 설계안**을 제시합니다.
 
 ```
 Workflow: 국내 AI 코딩 어시스턴트 시장조사 (Cursor/Windsurf/Claude Code)
@@ -123,10 +123,10 @@ Total 7 steps · Folder: Marketing & Content
 Name: 국내 AI 코딩 어시스턴트 시장조사 (ID: 90) · Steps: 7 · Version: 1.0
 ```
 
-### Phase B — `/bk-start` 실행
+### Phase B — `/wm-start` 실행
 
 ```
-⏺ Skill(bk-start)  Successfully loaded skill
+⏺ Skill(wm-start)  Successfully loaded skill
 
 Starting: 국내 AI 코딩 어시스턴트 시장조사 (7 steps)
 ━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -245,7 +245,7 @@ Starting: 국내 AI 코딩 어시스턴트 시장조사 (7 steps)
 
 ### 이 워크플로의 강점
 
-- **자연어 한 줄로 7단계 자동 실행**: 각 단계를 직접 지시할 필요 없이 `/bk-design` 스킬이 목표를 분석해 전체 구조를 설계합니다.
+- **자연어 한 줄로 7단계 자동 실행**: 각 단계를 직접 지시할 필요 없이 `/wm-design` 스킬이 목표를 분석해 전체 구조를 설계합니다.
 - **단계별 산출물 분리**: `cursor.json` / `windsurf.json` / `claude-code.json` 처럼 각 단계의 결과가 독립적으로 저장되므로 특정 항목만 수정해 재실행할 수 있습니다.
 - **VS Gate로 중간 개입**: "일단 끝까지 자동 실행"이 아니라, 중간 검토 시점을 워크플로 안에 명시적으로 포함시킬 수 있습니다.
 
@@ -261,6 +261,6 @@ Starting: 국내 AI 코딩 어시스턴트 시장조사 (7 steps)
 - 벡터 DB 비교 (Pinecone / Weaviate / Qdrant / pgvector)
 - LLM 게이트웨이 비교 (OpenRouter / LiteLLM / Portkey)
 
-`/bk-start workflow_id=90` 실행 시 입력 프롬프트만 바꾸면 동일한 구조로 다시 실행됩니다.
+`/wm-start workflow_id=90` 실행 시 입력 프롬프트만 바꾸면 동일한 구조로 다시 실행됩니다.
 
 [이 워크플로 내 워크스페이스에 추가하기](bk://try/01-market-research-ai-coding-assistants)

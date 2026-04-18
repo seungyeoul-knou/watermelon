@@ -2181,7 +2181,7 @@ export const openApiSpec = {
         tags: ["Tasks"],
         summary: "비활성 태스크 일괄 timed_out 전환",
         description:
-          "timeout_minutes 이상 비활성 상태인 running 태스크를 timed_out으로 전환합니다. bk-start 스킬이 워크플로 실행 전 호출합니다.",
+          "timeout_minutes 이상 비활성 상태인 running 태스크를 timed_out으로 전환합니다. wm-start 스킬이 워크플로 실행 전 호출합니다.",
         requestBody: {
           content: {
             "application/json": {

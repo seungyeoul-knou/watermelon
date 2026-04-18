@@ -21,7 +21,7 @@ const { TMP_HOME } = vi.hoisted(() => {
   return {
     TMP_HOME: path.join(
       osLib.tmpdir(),
-      `bk-cli-custom-${process.pid}-${Date.now()}-${Math.floor(Math.random() * 1e6)}`,
+      `wm-cli-custom-${process.pid}-${Date.now()}-${Math.floor(Math.random() * 1e6)}`,
     ),
   };
 });

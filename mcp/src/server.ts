@@ -239,7 +239,7 @@ const tools: Tool[] = [
   tool(
     "approve_step",
     "Approve the current HITL step on behalf of the human, unlocking advance. " +
-      "ONLY call this when the human explicitly invokes /bk-approve and confirms approval. " +
+      "ONLY call this when the human explicitly invokes /wm-approve and confirms approval. " +
       "Never call this autonomously — it must be a deliberate human action.",
     {
       task_id: { type: "number" },
@@ -281,7 +281,7 @@ const tools: Tool[] = [
   ),
   tool(
     "sweep_stale_tasks",
-    "Convert every 'running' task idle for longer than timeout_minutes (default 120) to 'timed_out'. Called by bk-start once at session start so zombie tasks surface for resume or cleanup. Safe to call at most once per session — do not invoke repeatedly during a workflow. Returns the list of tasks that were swept.",
+    "Convert every 'running' task idle for longer than timeout_minutes (default 120) to 'timed_out'. Called by wm-start once at session start so zombie tasks surface for resume or cleanup. Safe to call at most once per session — do not invoke repeatedly during a workflow. Returns the list of tasks that were swept.",
     {
       timeout_minutes: { type: "number" },
     },
@@ -310,7 +310,7 @@ const tools: Tool[] = [
 
 Optional first-line size directive: <!-- @bk size=sm|md|lg|xl|full --> (default sm).
 
-Components (use class names directly): bk-options, bk-cards, bk-checklist, bk-code-compare (selection); bk-slider, bk-input, bk-textarea, bk-ranking, bk-matrix (input); bk-split, bk-pros-cons, bk-mockup, bk-timeline (display). Every selectable/input element needs data-value or data-name. Full catalog, attribute reference, and sizing rules live in the bk-design / bk-start skills.
+Components (use class names directly): bk-options, bk-cards, bk-checklist, bk-code-compare (selection); bk-slider, bk-input, bk-textarea, bk-ranking, bk-matrix (input); bk-split, bk-pros-cons, bk-mockup, bk-timeline (display). Every selectable/input element needs data-value or data-name. Full catalog, attribute reference, and sizing rules live in the wm-design / wm-start skills.
 
 Response format (JSON from get_web_response): {selections, values, ranking, matrix, comment, fields, option_comments} — only populated keys appear.`,
     {

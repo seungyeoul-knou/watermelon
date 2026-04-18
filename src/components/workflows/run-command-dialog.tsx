@@ -67,9 +67,9 @@ function buildCommand(
   const parts = [title.trim(), context.trim()].filter(Boolean);
   const prompt = parts.join(" — ");
   if (prompt) {
-    return `${prefix}bk-start ${workflowId} :: ${prompt}`;
+    return `${prefix}wm-start ${workflowId} :: ${prompt}`;
   }
-  return `${prefix}bk-start ${workflowId}`;
+  return `${prefix}wm-start ${workflowId}`;
 }
 
 interface Props {

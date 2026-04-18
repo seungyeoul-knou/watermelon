@@ -838,14 +838,14 @@ export default function TutorialPage() {
                     <tbody>
                       {(
                         [
-                          ["/bk-start", t("tutorial.sSkBkStart")],
-                          ["/bk-next", t("tutorial.sSkBkNext")],
-                          ["/bk-design", t("tutorial.sSkBkDesign")],
-                          ["/bk-approve", t("tutorial.sSkBkApprove")],
-                          ["/bk-improve", t("tutorial.sSkBkImprove")],
-                          ["/bk-report", t("tutorial.sSkBkReport")],
-                          ["/bk-instruction", t("tutorial.sSkBkInstruction")],
-                          ["/bk-help", t("tutorial.sSkBkHelp")],
+                          ["/wm-start", t("tutorial.sSkBkStart")],
+                          ["/wm-next", t("tutorial.sSkBkNext")],
+                          ["/wm-design", t("tutorial.sSkBkDesign")],
+                          ["/wm-approve", t("tutorial.sSkBkApprove")],
+                          ["/wm-improve", t("tutorial.sSkBkImprove")],
+                          ["/wm-report", t("tutorial.sSkBkReport")],
+                          ["/wm-instruction", t("tutorial.sSkBkInstruction")],
+                          ["/wm-help", t("tutorial.sSkBkHelp")],
                         ] as const
                       ).map(([skill, desc]) => (
                         <tr key={skill}>

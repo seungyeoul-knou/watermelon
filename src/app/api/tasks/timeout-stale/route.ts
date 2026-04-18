@@ -10,7 +10,7 @@ import { notifyTaskUpdate } from "@/lib/notify-ws";
  * `running` 상태이면서 `updated_at`이 timeout_minutes(기본 120분) 이상
  * 경과한 태스크를 `timed_out`으로 전환한다.
  *
- * bk-start 스킬이 워크플로 실행 전 이 엔드포인트를 호출하여
+ * wm-start 스킬이 워크플로 실행 전 이 엔드포인트를 호출하여
  * 좀비 태스크를 정리하고, 재개 여부를 사용자에게 물을 수 있다.
  */
 export const POST = withAuth("tasks:execute", async (request: NextRequest) => {
@@ -65,7 +65,7 @@ export const POST = withAuth("tasks:execute", async (request: NextRequest) => {
  * GET /api/tasks/timeout-stale
  *
  * 현재 비활성(running) 태스크 목록을 반환한다. (dry-run 조회)
- * bk-start 스킬이 사용자에게 재개 여부를 묻기 전 조회에 사용.
+ * wm-start 스킬이 사용자에게 재개 여부를 묻기 전 조회에 사용.
  */
 export const GET = withAuth("tasks:read", async (request: NextRequest) => {
   const { searchParams } = request.nextUrl;

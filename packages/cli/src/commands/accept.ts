@@ -166,5 +166,5 @@ export async function acceptCommand(
 
   console.log(pc.green("\n✓ Watermelon installed successfully!"));
   console.log(pc.dim(`Profile: ${profileName}`));
-  console.log(pc.dim("Try /bk-start in your agent runtime to begin."));
+  console.log(pc.dim("Try /wm-start in your agent runtime to begin."));
 }

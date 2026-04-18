@@ -3,9 +3,9 @@ import { join } from "path";
 
 import type { SkillBundle } from "./base.js";
 
-// All Watermelon-installed skills are prefixed with "bk-" so we can safely
+// All Watermelon-installed skills are prefixed with "wm-" so we can safely
 // prune or uninstall them without touching the user's other skill files.
-const SKILL_PREFIX = "bk-";
+const SKILL_PREFIX = "wm-";
 
 export function installSkills(skillsDir: string, skills: SkillBundle[]): void {
   mkdirSync(skillsDir, { recursive: true });

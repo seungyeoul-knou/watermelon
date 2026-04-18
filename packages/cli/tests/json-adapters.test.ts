@@ -23,7 +23,7 @@ const { TMP_HOME } = vi.hoisted(() => {
   return {
     TMP_HOME: path.join(
       osLib.tmpdir(),
-      `bk-cli-json-${process.pid}-${Date.now()}-${Math.floor(Math.random() * 1e6)}`,
+      `wm-cli-json-${process.pid}-${Date.now()}-${Math.floor(Math.random() * 1e6)}`,
     ),
   };
 });
@@ -226,12 +226,12 @@ describe.each(SPECS)("$name adapter", (spec) => {
 
   it("skills install + prune round-trip", () => {
     adapter.installSkills([
-      { name: "bk-a", content: "A" },
-      { name: "bk-b", content: "B" },
+      { name: "wm-a", content: "A" },
+      { name: "wm-b", content: "B" },
     ]);
-    adapter.pruneSkills(new Set(["bk-a"]));
-    expect(existsSync(join(adapter.getSkillsDir(), "bk-a"))).toBe(true);
-    expect(existsSync(join(adapter.getSkillsDir(), "bk-b"))).toBe(false);
+    adapter.pruneSkills(new Set(["wm-a"]));
+    expect(existsSync(join(adapter.getSkillsDir(), "wm-a"))).toBe(true);
+    expect(existsSync(join(adapter.getSkillsDir(), "wm-b"))).toBe(false);
   });
 });
 

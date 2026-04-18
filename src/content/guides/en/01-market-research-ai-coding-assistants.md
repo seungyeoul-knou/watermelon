@@ -4,8 +4,8 @@
 
 With a single natural-language prompt, Watermelon will:
 
-1. Use `/bk-design` to **design a 7-step workflow → register it on the server**
-2. Use `/bk-start` to **auto-execute each step** (web search + artifact writing)
+1. Use `/wm-design` to **design a 7-step workflow → register it on the server**
+2. Use `/wm-start` to **auto-execute each step** (web search + artifact writing)
 3. Pause mid-run for a **VS Gate (Visual Selection)** human review
 4. Automatically produce a final **Markdown report**
 
@@ -48,11 +48,11 @@ watermelon init -p dev -s https://dantelabs.watermelon.work -k bk_xxxxxxxxxxxxxx
 
 ### 1-2. Verify Skill Registration
 
-When you install the Watermelon CLI, **skills** like `/bk-design` and `/bk-start` are automatically registered in Claude Code. Skills run as slash commands and communicate with the Watermelon server internally.
+When you install the Watermelon CLI, **skills** like `/wm-design` and `/wm-start` are automatically registered in Claude Code. Skills run as slash commands and communicate with the Watermelon server internally.
 
 > **You only need to call the skill.** MCP connections and API calls are handled automatically.
 
-Once installation is complete, `/bk-` skills are available immediately in any Claude Code session.
+Once installation is complete, `/wm-` skills are available immediately in any Claude Code session.
 
 ### 1-3. ⚠️ Permission Mode Notice
 
@@ -84,7 +84,7 @@ Comparison points:
 - Korean user community reactions (blogs, YouTube, communities)
 - Strengths and weaknesses
 
-Use /bk-design to design the workflow, then /bk-start to execute it,
+Use /wm-design to design the workflow, then /wm-start to execute it,
 and produce a final Markdown comparison report at the end.
 ```
 
@@ -94,13 +94,13 @@ That's it. The agent handles everything from here.
 
 ## 3. Step-by-Step Session Log
 
-### Phase A — `/bk-design` Workflow Design
+### Phase A — `/wm-design` Workflow Design
 
 ```
-⏺ Skill(bk-design)  Successfully loaded skill
+⏺ Skill(wm-design)  Successfully loaded skill
 ```
 
-The agent runs the `/bk-design` skill. It queries existing folders and workflows on the Watermelon server, then proposes a **7-step design** tailored to the goal.
+The agent runs the `/wm-design` skill. It queries existing folders and workflows on the Watermelon server, then proposes a **7-step design** tailored to the goal.
 
 ```
 Workflow: Domestic AI Coding Assistant Market Research (Cursor/Windsurf/Claude Code)
@@ -123,10 +123,10 @@ After you approve the design, the skill registers the workflow on the Watermelon
 Name: Domestic AI Coding Assistant Market Research (ID: 90) · Steps: 7 · Version: 1.0
 ```
 
-### Phase B — `/bk-start` Execution
+### Phase B — `/wm-start` Execution
 
 ```
-⏺ Skill(bk-start)  Successfully loaded skill
+⏺ Skill(wm-start)  Successfully loaded skill
 
 Starting: Domestic AI Coding Assistant Market Research (7 steps)
 ━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -236,7 +236,7 @@ The agent's one-line summary at the end of the report:
 
 ### Strengths of This Workflow
 
-- **7-step auto-execution from one natural-language prompt**: No need to direct each step individually — `/bk-design` analyzes your goal and designs the full structure.
+- **7-step auto-execution from one natural-language prompt**: No need to direct each step individually — `/wm-design` analyzes your goal and designs the full structure.
 - **Isolated artifacts per step**: Each step's output (`cursor.json`, `windsurf.json`, etc.) is stored independently, so you can edit and re-run a single step.
 - **Mid-run intervention via VS Gate**: Rather than "run everything to the end", you can embed explicit review checkpoints inside the workflow.
 
@@ -252,6 +252,6 @@ This workflow is built on an **"N targets × comparison axes × VS review"** str
 - Vector DB comparison (Pinecone / Weaviate / Qdrant / pgvector)
 - LLM gateway comparison (OpenRouter / LiteLLM / Portkey)
 
-Run `/bk-start workflow_id=90` and change only the input prompt to re-execute the same structure on a new subject.
+Run `/wm-start workflow_id=90` and change only the input prompt to re-execute the same structure on a new subject.
 
 [Add this workflow to your workspace](bk://try/01-market-research-ai-coding-assistants)

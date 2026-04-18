@@ -22,7 +22,7 @@ describe("skills-helper", () => {
   beforeEach(() => {
     dir = join(
       tmpdir(),
-      `bk-skills-${process.pid}-${Date.now()}-${Math.random()}`,
+      `wm-skills-${process.pid}-${Date.now()}-${Math.random()}`,
     );
   });
 
@@ -32,46 +32,46 @@ describe("skills-helper", () => {
 
   it("installSkills writes SKILL.md per bundle", () => {
     installSkills(dir, [
-      { name: "bk-a", content: "# A" },
-      { name: "bk-b", content: "# B" },
+      { name: "wm-a", content: "# A" },
+      { name: "wm-b", content: "# B" },
     ]);
-    expect(readFileSync(join(dir, "bk-a", "SKILL.md"), "utf8")).toBe("# A");
-    expect(readFileSync(join(dir, "bk-b", "SKILL.md"), "utf8")).toBe("# B");
+    expect(readFileSync(join(dir, "wm-a", "SKILL.md"), "utf8")).toBe("# A");
+    expect(readFileSync(join(dir, "wm-b", "SKILL.md"), "utf8")).toBe("# B");
   });
 
   it("installSkills creates missing parent directory", () => {
     expect(existsSync(dir)).toBe(false);
-    installSkills(dir, [{ name: "bk-a", content: "x" }]);
-    expect(existsSync(join(dir, "bk-a"))).toBe(true);
+    installSkills(dir, [{ name: "wm-a", content: "x" }]);
+    expect(existsSync(join(dir, "wm-a"))).toBe(true);
   });
 
-  it("pruneSkills removes bk-* entries not in keep set", () => {
+  it("pruneSkills removes wm-* entries not in keep set", () => {
     installSkills(dir, [
-      { name: "bk-a", content: "x" },
-      { name: "bk-b", content: "y" },
+      { name: "wm-a", content: "x" },
+      { name: "wm-b", content: "y" },
     ]);
     // A non-watermelon user skill should survive.
     mkdirSync(join(dir, "user-custom"), { recursive: true });
     writeFileSync(join(dir, "user-custom", "SKILL.md"), "mine");
 
-    pruneSkills(dir, new Set(["bk-a"]));
+    pruneSkills(dir, new Set(["wm-a"]));
 
     const remaining = readdirSync(dir).sort();
-    expect(remaining).toEqual(["bk-a", "user-custom"]);
+    expect(remaining).toEqual(["user-custom", "wm-a"]);
   });
 
   it("pruneSkills is a no-op when the directory doesn't exist", () => {
     expect(() => pruneSkills(dir, new Set())).not.toThrow();
   });
 
-  it("uninstallSkills removes every bk-* entry but leaves non-bk files intact", () => {
-    installSkills(dir, [{ name: "bk-a", content: "x" }]);
+  it("uninstallSkills removes every wm-* entry but leaves non-wm files intact", () => {
+    installSkills(dir, [{ name: "wm-a", content: "x" }]);
     mkdirSync(join(dir, "user-custom"), { recursive: true });
     writeFileSync(join(dir, "user-custom", "SKILL.md"), "mine");
 
     uninstallSkills(dir);
 
-    expect(existsSync(join(dir, "bk-a"))).toBe(false);
+    expect(existsSync(join(dir, "wm-a"))).toBe(false);
     expect(existsSync(join(dir, "user-custom"))).toBe(true);
   });
 });

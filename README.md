@@ -23,7 +23,7 @@ Design reusable workflows, run them from any AI coding agent, and watch every st
 Watermelon is a **self-hosted workflow engine for AI coding agents**. You design multi-step workflows once in the web UI, then any connected agent (Claude Code, Codex CLI, Gemini CLI, …) can start and execute them — with every step logged in a live timeline you can watch in the browser.
 
 ```
-You type:  /bk-start "backend code review"
+You type:  /wm-start "backend code review"
 
 Agent ──▶ Watermelon MCP ──▶ Watermelon Server ──▶ Web UI (live timeline)
           list_workflows      stores logs          your browser
@@ -130,23 +130,23 @@ After `watermelon accept`, you have these slash commands inside Claude Code (and
 
 | Command                | Description                                                                                  |
 | ---------------------- | -------------------------------------------------------------------------------------------- |
-| `/bk-start [workflow]` | Start or resume a workflow. Handles session restore, timed-out tasks, and HITL gates inline. |
-| `/bk-design [goal]`    | Design and register a new workflow from a natural-language description.                      |
-| `/bk-approve`          | Approve a paused HITL step when resuming a session mid-approval.                             |
-| `/bk-improve`          | Analyze a completed task and suggest workflow improvements.                                  |
-| `/bk-report`           | Generate a structured report for a completed task.                                           |
-| `/bk-instruction`      | Create or update an instruction template in the library.                                     |
-| `/bk-rewind`           | Rewind the current task to a previous step.                                                  |
-| `/bk-status`           | Show current task progress and step details.                                                 |
-| `/bk-version`          | Show or switch the active workflow version.                                                  |
-| `/bk-credential`       | List or create credentials available to the agent.                                           |
-| `/bk-scan`             | Run compliance pattern scans on the local repository.                                        |
-| `/bk-share`            | Share a folder with a user group.                                                            |
+| `/wm-start [workflow]` | Start or resume a workflow. Handles session restore, timed-out tasks, and HITL gates inline. |
+| `/wm-design [goal]`    | Design and register a new workflow from a natural-language description.                      |
+| `/wm-approve`          | Approve a paused HITL step when resuming a session mid-approval.                             |
+| `/wm-improve`          | Analyze a completed task and suggest workflow improvements.                                  |
+| `/wm-report`           | Generate a structured report for a completed task.                                           |
+| `/wm-instruction`      | Create or update an instruction template in the library.                                     |
+| `/wm-rewind`           | Rewind the current task to a previous step.                                                  |
+| `/wm-status`           | Show current task progress and step details.                                                 |
+| `/wm-version`          | Show or switch the active workflow version.                                                  |
+| `/wm-credential`       | List or create credentials available to the agent.                                           |
+| `/wm-scan`             | Run compliance pattern scans on the local repository.                                        |
+| `/wm-share`            | Share a folder with a user group.                                                            |
 
 **Example session:**
 
 ```
-You:   /bk-start "backend code review"
+You:   /wm-start "backend code review"
 
 Agent: → Starting "Backend Code Review" (6 steps)
          Step 1/6 — Summarize scope
@@ -155,7 +155,7 @@ Agent: → Starting "Backend Code Review" (6 steps)
          ⏸  Gate: Review findings and approve to continue.
          [waits for human]
 
-You:   /bk-approve
+You:   /wm-approve
 
 Agent: → Approved. Step 3/6 — Performance analysis ...
 ```
@@ -173,7 +173,7 @@ Open the web UI → **Workflows → New** → add steps.
 | Type       | Behavior                                                                                                                                                                                                                                                    |
 | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Action** | Agent executes autonomously and advances automatically.                                                                                                                                                                                                     |
-| **Gate**   | Agent pauses and waits for the next `/bk-start` call or human signal to continue. Enable **Visual Selection** to render a click-based HTML UI (bk-options, bk-checklist, bk-slider, …) that the agent writes and the user interacts with in a popup dialog. |
+| **Gate**   | Agent pauses and waits for the next `/wm-start` call or human signal to continue. Enable **Visual Selection** to render a click-based HTML UI (bk-options, bk-checklist, bk-slider, …) that the agent writes and the user interacts with in a popup dialog. |
 | **Loop**   | Agent repeats the step until a condition is met, then jumps forward.                                                                                                                                                                                        |
 
 ### HITL (Human-in-the-Loop)
@@ -185,10 +185,10 @@ Mark any **Action** node as `hitl=true` to require explicit human approval befor
 ```
 pending → running → completed
                   → failed
-                  → timed_out   (inactive for 2+ hours; /bk-start offers resume)
+                  → timed_out   (inactive for 2+ hours; /wm-start offers resume)
 ```
 
-Tasks can be **rewound** to any previous step from the web UI or via `/bk-rewind`.
+Tasks can be **rewound** to any previous step from the web UI or via `/wm-rewind`.
 
 ---
 
@@ -221,7 +221,7 @@ The `watermelon` MCP server exposes tools your agent runtime calls automatically
 | Tool               | Description                                                   |
 | ------------------ | ------------------------------------------------------------- |
 | `request_approval` | Signal that a human must approve before the agent can advance |
-| `approve_step`     | Approve the current HITL step (only called by `/bk-approve`)  |
+| `approve_step`     | Approve the current HITL step (only called by `/wm-approve`)  |
 
 ### Task data
 
