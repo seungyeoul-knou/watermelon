@@ -18,7 +18,6 @@
     "mcp"
   ],
   "scripts": {
-    "postinstall": "node scripts/rebuild-native.mjs",
     "dev": "bash scripts/dev.sh start",
     "dev:stop": "bash scripts/dev.sh stop",
     "dev:restart": "bash scripts/dev.sh restart",

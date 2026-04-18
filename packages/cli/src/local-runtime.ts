@@ -7,7 +7,7 @@ import {
 } from "node:fs";
 import { homedir } from "node:os";
 import { dirname, join, resolve } from "node:path";
-import { spawn } from "node:child_process";
+import { execFileSync, spawn } from "node:child_process";
 import net from "node:net";
 import { resolveAppRuntime } from "./runtime-artifacts.js";
 
@@ -69,6 +69,29 @@ function runtimeRecordPath(profile?: string): string {
 
 function ensureDir(pathname: string): void {
   mkdirSync(pathname, { recursive: true });
+}
+
+function ensureBundledNativeModules(appRoot: string): void {
+  const sqliteDir = join(appRoot, "node_modules", "better-sqlite3");
+  const sqliteBinary = join(sqliteDir, "build", "Release", "better_sqlite3.node");
+
+  if (!existsSync(sqliteDir) || existsSync(sqliteBinary)) return;
+
+  ensureDir(dirname(sqliteBinary));
+  const isWin = process.platform === "win32";
+  const execOpts = { cwd: sqliteDir, stdio: "inherit" as const, shell: isWin };
+
+  try {
+    execFileSync("npx", ["-y", "prebuild-install"], {
+      ...execOpts,
+      timeout: 60_000,
+    });
+  } catch {
+    execFileSync("npx", ["-y", "node-gyp", "rebuild", "--release"], {
+      ...execOpts,
+      timeout: 120_000,
+    });
+  }
 }
 
 async function isPortFree(port: number, host: string): Promise<boolean> {
@@ -149,6 +172,9 @@ export async function startLocalRuntime(
 
   const runtime = resolveAppRuntime();
   const appRoot = runtime.root;
+  if (runtime.kind === "bundle") {
+    ensureBundledNativeModules(appRoot);
+  }
   const root = options.dataDir
     ? resolve(options.dataDir)
     : quickstartRoot(profile);
