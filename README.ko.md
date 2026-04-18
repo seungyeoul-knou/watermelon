@@ -74,7 +74,7 @@ docker compose up -d
 ### 4. CLI 설치
 
 ```bash
-npm install -g git+https://github.com/seungyeoul-knou/watermelon.git
+npm install -g https://github.com/seungyeoul-knou/watermelon/archive/main.tar.gz
 ```
 
 **방법 A — 초대 수락 (신규 팀원 권장)**
@@ -106,7 +106,7 @@ Docker, PostgreSQL, Redis 없이 바로 Watermelon를 써보고 싶다면, CLI�
 현재 안정성 수준: `Beta`
 
 ```bash
-npm install -g git+https://github.com/seungyeoul-knou/watermelon.git
+npm install -g https://github.com/seungyeoul-knou/watermelon/archive/main.tar.gz
 watermelon start
 watermelon status
 watermelon stop
@@ -276,7 +276,7 @@ pending → running → completed
 ## CLI
 
 ```bash
-npm install -g git+https://github.com/seungyeoul-knou/watermelon.git
+npm install -g https://github.com/seungyeoul-knou/watermelon/archive/main.tar.gz
 ```
 
 | 커맨드                                         | 설명                                          |
