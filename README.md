@@ -75,7 +75,11 @@ Open **http://localhost:3100/setup** → create your superuser account. The `/se
 ### 4. Install the CLI
 
 ```bash
-npm install -g watermelon
+git clone https://github.com/seungyeoul-knou/watermelon.git
+cd watermelon
+npm install
+npm --workspace packages/cli run build
+npm --workspace packages/cli link
 ```
 
 **Option A — accept an invite (recommended for new team members)**
@@ -107,7 +111,11 @@ If you want to try Watermelon without Docker, PostgreSQL, or Redis, the CLI can 
 Current stability level: `Beta`.
 
 ```bash
-npm install -g watermelon
+git clone https://github.com/seungyeoul-knou/watermelon.git
+cd watermelon
+npm install
+npm --workspace packages/cli run build
+npm --workspace packages/cli link
 watermelon start
 watermelon status
 watermelon stop
@@ -278,7 +286,11 @@ The `watermelon` MCP server exposes tools your agent runtime calls automatically
 ## CLI
 
 ```bash
-npm install -g watermelon
+git clone https://github.com/seungyeoul-knou/watermelon.git
+cd watermelon
+npm install
+npm --workspace packages/cli run build
+npm --workspace packages/cli link
 ```
 
 | Command                                        | Description                                          |

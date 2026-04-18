@@ -1,6 +1,6 @@
 /**
  * rebuild-native.mjs
- * Runs after `npm install -g watermelon` to download the correct
+ * Runs after `npm install` or `npm link` to download the correct
  * better-sqlite3 prebuilt binary for the user's platform.
  *
  * The npm tarball intentionally excludes the .node binary

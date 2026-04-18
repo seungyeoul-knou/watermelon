@@ -1049,7 +1049,13 @@ export default function TutorialPage() {
                 <div className={S.panel}>
                   <ol className="space-y-3 text-sm">
                     <li>
-                      1. <Code>npm install -g watermelon</Code>{" "}
+                      1.{" "}
+                      <Code>
+                        git clone https://github.com/seungyeoul-knou/watermelon.git
+                        && cd watermelon && npm install && npm --workspace
+                        packages/cli run build && npm --workspace packages/cli
+                        link
+                      </Code>{" "}
                       <span className="text-muted-foreground">
                         {t("tutorial.s7Setup1")}
                       </span>

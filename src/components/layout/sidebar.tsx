@@ -366,7 +366,9 @@ export function Sidebar({ user, teamName }: SidebarProps) {
               <div>
                 <p className="font-medium">{t("nav.updateMethodNpmTitle")}</p>
                 <pre className="mt-1 overflow-x-auto rounded-xl border border-border bg-muted/30 px-3 py-2 font-mono text-xs">
-                  npm install -g watermelon@latest
+                  {
+                    "git pull\nnpm install\nnpm --workspace packages/cli run build"
+                  }
                 </pre>
               </div>
               <div>

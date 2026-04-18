@@ -129,7 +129,7 @@
     "s7Title": "MCP 연동",
     "s7Intro": "Watermelon MCP 서버를 AI 도구에 연결하면 워크플로 실행을 자동화할 수 있습니다. 사람이 웹 UI에서 하는 일을 에이전트가 대신 수행합니다.",
     "s7SetupTitle": "MCP 서버 연결하기",
-    "s7Setup1": "npm install -g watermelon 로 CLI를 설치합니다.",
+    "s7Setup1": "소스를 다운로드한 뒤 CLI를 빌드하고 로컬 watermelon 명령으로 연결합니다.",
     "s7Setup2": "관리자가 보낸 초대 링크에서 토큰을 복사합니다.",
     "s7Setup3": "watermelon accept <토큰> -s <서버URL> 로 초대 기반 연결을 완료합니다.",
     "s7Setup4": "API 키가 있다면 watermelon init -p <프로필> -s <서버URL> -k <API키> 로 직접 연결하거나 MCP 설정을 갱신합니다.",
@@ -248,7 +248,7 @@
     "versionDialogDescUpdate": "새 버전이 있습니다. 현재 버전은 v{current}이고, 최신 릴리스는 v{latest}입니다.",
     "versionDialogDescCurrent": "현재 알려진 최신 버전 v{current}을 사용 중입니다.",
     "updateMethodCliTitle": "CLI로 설치한 경우",
-    "updateMethodNpmTitle": "전역 재설치를 원할 경우",
+    "updateMethodNpmTitle": "소스로 설치한 경우",
     "updateMethodDockerTitle": "Docker Compose로 운영 중인 경우",
     "viewReleaseNotes": "릴리스 노트 보기"
   },
