@@ -74,11 +74,7 @@ docker compose up -d
 ### 4. CLI 설치
 
 ```bash
-git clone https://github.com/seungyeoul-knou/watermelon.git
-cd watermelon
-npm install
-npm --workspace packages/cli run build
-npm --workspace packages/cli link
+npm install -g git+https://github.com/seungyeoul-knou/watermelon.git
 ```
 
 **방법 A — 초대 수락 (신규 팀원 권장)**
@@ -110,11 +106,7 @@ Docker, PostgreSQL, Redis 없이 바로 Watermelon를 써보고 싶다면, CLI�
 현재 안정성 수준: `Beta`
 
 ```bash
-git clone https://github.com/seungyeoul-knou/watermelon.git
-cd watermelon
-npm install
-npm --workspace packages/cli run build
-npm --workspace packages/cli link
+npm install -g git+https://github.com/seungyeoul-knou/watermelon.git
 watermelon start
 watermelon status
 watermelon stop
@@ -284,11 +276,7 @@ pending → running → completed
 ## CLI
 
 ```bash
-git clone https://github.com/seungyeoul-knou/watermelon.git
-cd watermelon
-npm install
-npm --workspace packages/cli run build
-npm --workspace packages/cli link
+npm install -g git+https://github.com/seungyeoul-knou/watermelon.git
 ```
 
 | 커맨드                                         | 설명                                          |

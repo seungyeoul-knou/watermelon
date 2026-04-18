@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "esbuild src/server.ts --bundle --platform=node --format=esm --outfile=dist/server.js --banner:js='import{createRequire}from\"module\";const require=createRequire(import.meta.url);'",
+    "build": "node scripts/build.mjs",
     "start": "node dist/server.js"
   },
   "dependencies": {

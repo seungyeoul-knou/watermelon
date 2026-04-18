@@ -129,7 +129,7 @@
     "s7Title": "MCP Integration",
     "s7Intro": "Connecting the Watermelon MCP server to your AI tool automates workflow execution. The agent performs what a human would do in the web UI.",
     "s7SetupTitle": "Connect the MCP server",
-    "s7Setup1": "Download the source, build the CLI, and link the local watermelon command.",
+    "s7Setup1": "Install from the GitHub source; npm builds the CLI and links the watermelon command.",
     "s7Setup2": "Copy the token from the invite link sent by the admin.",
     "s7Setup3": "Complete invite-based setup with watermelon accept <token> -s <serverURL>.",
     "s7Setup4": "If you already have an API key, run watermelon init -p <profile> -s <serverURL> -k <apiKey> to connect directly or refresh MCP settings.",
@@ -248,7 +248,7 @@
     "versionDialogDescUpdate": "A newer version is available. You are on v{current}, and the latest release is v{latest}.",
     "versionDialogDescCurrent": "You are using the latest known version: v{current}.",
     "updateMethodCliTitle": "If you installed the CLI",
-    "updateMethodNpmTitle": "If you installed from source",
+    "updateMethodNpmTitle": "Install or update from GitHub",
     "updateMethodDockerTitle": "If you run Watermelon with Docker Compose",
     "viewReleaseNotes": "View release notes"
   },

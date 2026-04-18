@@ -2,10 +2,23 @@
   "name": "watermelon",
   "version": "1.2.0",
   "private": true,
+  "bin": {
+    "watermelon": "./packages/cli/dist/index.js"
+  },
+  "files": [
+    "packages/cli/dist",
+    "packages/cli/scripts",
+    "packages/cli/package.json",
+    "README.md",
+    "README.ko.md"
+  ],
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "mcp"
   ],
   "scripts": {
+    "prepare": "npm run build && npm --workspace watermelon-mcp run build && npm --workspace packages/cli run build",
+    "postinstall": "node packages/cli/scripts/rebuild-native.mjs",
     "dev": "bash scripts/dev.sh start",
     "dev:stop": "bash scripts/dev.sh stop",
     "dev:restart": "bash scripts/dev.sh restart",
@@ -39,12 +52,15 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
+    "commander": "^12.1.0",
     "jose": "^6.2.2",
     "lucide-react": "^1.8.0",
     "next": "16.2.2",
     "next-themes": "^0.4.6",
     "nodemailer": "^8.0.5",
     "pg": "^8.20.0",
+    "picocolors": "^1.1.1",
+    "prompts": "^2.4.2",
     "radix-ui": "^1.4.3",
     "react": "19.2.4",
     "react-dom": "19.2.4",

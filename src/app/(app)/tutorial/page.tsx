@@ -1051,10 +1051,8 @@ export default function TutorialPage() {
                     <li>
                       1.{" "}
                       <Code>
-                        git clone https://github.com/seungyeoul-knou/watermelon.git
-                        && cd watermelon && npm install && npm --workspace
-                        packages/cli run build && npm --workspace packages/cli
-                        link
+                        npm install -g
+                        git+https://github.com/seungyeoul-knou/watermelon.git
                       </Code>{" "}
                       <span className="text-muted-foreground">
                         {t("tutorial.s7Setup1")}
