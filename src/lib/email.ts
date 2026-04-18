@@ -223,7 +223,7 @@ function buildInviteHtml(params: {
     <tr><td align="center">
       <table width="480" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:12px;border:1px solid #e5e7eb;overflow:hidden;">
         <tr><td style="background:#2563eb;padding:24px 32px;">
-          <span style="color:#ffffff;font-size:20px;font-weight:700;">🥝 Watermelon</span>
+          <span style="color:#ffffff;font-size:20px;font-weight:700;">🍉 Watermelon</span>
         </td></tr>
         <tr><td style="padding:32px;">
           <h1 style="margin:0 0 8px;font-size:18px;font-weight:600;color:#111827;">${s.heading}</h1>
